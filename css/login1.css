@@ -1,0 +1,33 @@
+.login_1{
+	width: 330px;
+	height: 142px;
+	margin-top: 50px;
+	margin-left: 120px;
+}
+.login_1 b{
+	margin-top: 160px;
+	margin-left: 158px;
+	margin: 0 auto;
+}
+.login1_b{
+	width: 380px;
+	height: 40px;
+	margin: 0 auto;
+	margin-top:84px;
+	margin-bottom: 190px;
+}
+.login1_b p:first-child a{
+	font-size: 12px;
+	color: #0000FF;
+}
+.login1_b p:last-child{
+	margin-top: 10px;
+}
+.login1_b p{
+	font-size: 13px;
+	color: gray;
+	text-align: center;
+}
+.loginconfi{
+	margin-bottom: 10px;
+}

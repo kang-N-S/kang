@@ -1,0 +1,380 @@
+window.onload = function() {
+	let right1 = document.getElementById('right_a1');//登录
+	let right2 = document.getElementById('login_a');//注册
+	
+	if (document.cookie.indexOf('username')>=0) {//indexOf()通过内容来判断是否存在（存在则返回下标，不存在返回-1）
+		let str = document.cookie.split("; ");
+		for (let i = 0; i < str.length-1; i++) {
+			let str1 = str[i].split("=");
+			right1.innerHTML =str1[1];
+			console.log(str1[1]);
+			right1.style.lineHeight='36px'
+		}
+		right2.remove();
+	}
+}
+
+
+let t = document.getElementsByClassName("top_p")[0];
+let t1 = document.getElementsByClassName("top")[0];
+$(function() {
+	$(".a").css({
+		top: 190,
+	})
+	t.onclick = function() {
+		t1.style.display = "none";
+		$(".a").css({
+			top: 100,
+		})
+	}
+})
+
+
+// let ria=document.getElementById('right_a1');
+// let login_a=document.getElementById('login_a');
+// 
+// ria.onclick=function(){
+// 	window.location.href='login.html';
+// }
+// login_a.onclick=function(){
+// 	window.locationlocation.href='register.html';
+// }
+
+let ob = document.getElementsByClassName('b');
+let ob1 = document.getElementsByClassName('b1');
+for (let i = 0; i < ob1.length; i++) {
+	ob[i].onmouseover = function() {
+		ob1[i].style.display = 'block';
+		$(this).children().eq(0).css({
+			color: '#cc494c'
+		})
+	}
+	ob[i].onmouseout = function() {
+		ob1[i].style.display = 'none';
+		$(this).children().eq(0).css({
+			color: ''
+		})
+	}
+	ob1[i].onmouseover = function() {
+		$(this).children().children().eq(0).css({
+			color: '#cc494c'
+		})
+	}
+	ob1[i].onmouseout = function() {
+		$(this).children().children().eq(0).css({
+			color: ''
+		})
+	}
+}
+
+
+
+
+let oList = document.getElementsByClassName('u1');
+let oA = document.getElementsByClassName("a");
+for (let i = 0; i < oA.length; i++) {
+	oList[i].onmouseover = function() {
+		oA[i].style.display = 'block';
+	}
+	oList[i].onmouseout = function() {
+		oA[i].style.display = 'none';
+	}
+	oA[i].onmousemove = function() {
+		oA[i].style.display = 'block';
+	}
+	oA[i].onmouseout = function() {
+		oA[i].style.display = 'none';
+	}
+}
+
+//轮播图
+$(function() {
+	var i = 0;
+	var time;
+	//先显示第一张图片
+	$(".lb_list>li").eq(0).show().siblings('li').hide();
+	$('.lb>span').eq(0).css({
+		background: 'white'
+	}).siblings("span").css({
+		background: "transparent"
+	});
+	time = setInterval(function() {
+		$(".lb_list>li").eq(i).fadeIn(300).siblings('li').fadeOut(300);
+		$('span').eq(i).css({
+			background: 'white'
+		}).siblings("span").css({
+			background: "transparent"
+		});
+		$(".lb>span").mouseover(function() {
+			i = $(this).index(); //把当前的下标赋给i,也就是获取i的值
+			$(".lb_list>li").eq(i).fadeIn(300).siblings('li').fadeOut(300);
+			$(this).css({
+				background: "white"
+			}).siblings("span").css({
+				background: "transparent"
+			});
+		})
+		i++;
+		if (i == 10) {
+			i = 0;
+		}
+	}, 1000);
+})
+
+
+$(function() {
+	$('.lef').click(function() {
+		$('.lef span').css({
+			background: '#f0f0f0'
+		})
+		$('.rig span').css({
+			background: '#d1d1d1'
+		})
+		$('.gd_a').animate({
+			left: -300,
+		}, 1000);
+	})
+
+
+	$('.rig').click(function() {
+		$('.lef span').css({
+			background: '#d1d1d1'
+		})
+		$('.rig span').css({
+			background: '#f0f0f0'
+		})
+		$('.gd_a').animate({
+			left: 0,
+		}, 1000);
+	})
+})
+
+
+$(function() {
+	var i = 0;
+	$('.to1 .to_d').mouseover(function() {
+		i = $(this).index;
+		$(this).children(i).stop().animate({
+			width: 299
+		}, 100)
+	})
+	$('.to1 .to_d').mouseout(function() {
+		$(this).children().eq(0).stop().animate({
+			width: 0
+		}, 100)
+	})
+})
+
+
+//运动的js
+// let tod = document.getElementsByClassName('to_d')
+// let tosp = document.getElementsByClassName('to_sp')
+// let speed = 30
+// for(let i=0;i<tod.length;i++){
+// 	tod[i].onmouseover = function(){
+// 		
+// 		setInterval(function(){
+// 			speed += 10;
+// 			if(speed >=300){
+// 				speed == 300
+// 			}
+// 			tosp[i].style.width = speed +'px';
+// 		},10)
+// 		
+// 	}
+// 	tod[i].onmouseout = function(){
+// 		
+// 		setInterval(function(){
+// 			speed += -10;
+// 			if(speed <=300){
+// 				speed == 0
+// 			}
+// 			tosp[i].style.width = speed +'px';
+// 		},10)
+// 	}
+// }
+// 
+// $(function(){
+// 	$('.gd_a li').mouseover(function(){
+// 		$(this).css({borderTop:"2px solid darkred"})
+// 		.animate({
+// 			borderTop:300
+// 		},3000)
+// 	})
+// 	$('.gd_a li').mouseout(function(){
+// 		$(this).css({borderTop:""})
+// 		.animate({
+// 			borderTop:0
+// 		},3000)
+// 	})
+// })
+
+
+//运动的jq
+$(function() {
+	$('.gd_a li').mouseover(function() {
+		$(this).children().eq(0).stop().animate({
+			width: 214
+		}, 50)
+	})
+	$('.gd_a li').mouseout(function() {
+		$(this).children().eq(0).stop().animate({
+			width: 0
+		}, 50)
+	})
+})
+
+
+$(function() {
+	$('.do1 img').mouseover(function() {
+		$(this).next().css({
+			background: 'darkred'
+		})
+	})
+	$('.do1 img').mouseout(function() {
+		$(this).next().css({
+			background: ''
+		})
+	})
+	$('.do1 div').mouseover(function() {
+		$(this).css({
+			background: 'darkred'
+		})
+	})
+	$('.do1 div').mouseout(function() {
+		$(this).css({
+			background: ''
+		})
+	})
+})
+
+// //在线咨询
+$(function() {
+	$('.gwxg_rig p').mouseover(function() {
+		$('.gwxg_rig p').children().eq(1).css({
+			display: 'block'
+		});
+	})
+	$('.gwxg_rig p').mouseout(function() {
+		$('.gwxg_rig p').children().eq(1).css({
+			display: ''
+		});
+	})
+})
+
+//下拉菜单js
+// let oA3 = document.getElementById('leftu').getElementsByTagName('a');
+// for(let i=0;i<oA3.length;i++){
+// 	oA3[i].onmouseover = function (){
+// 		oA3[i].style.color = 'darkred';
+// 	}
+// 	oA3[i].onmouseout = function (){
+// 		oA3[i].style.color = '';
+// 	}
+// }
+// 
+// 
+// let oA4= document.getElementById('rightu').getElementsByTagName('a');
+// for(let i=0;i<oA4.length;i++){
+// 	oA4[i].onmouseover = function (){
+// 		oA4[i].style.color = 'darkred';
+// 	}
+// 	oA4[i].onmouseout = function (){
+// 		oA4[i].style.color = '';
+// 	}
+// }
+// 
+// 
+// let oA5= document.getElementById('right_sh').getElementsByTagName('a');
+// for(let i=0;i<oA5.length;i++){
+// 	oA5[i].onmouseover = function (){
+// 		oA5[i].style.color = 'darkred';
+// 	}
+// 	oA5[i].onmouseout = function (){
+// 		oA5[i].style.color = '';
+// 	}
+// }
+
+//下拉菜单jq
+$(function() {
+	$('.b1>div>p').mouseover(function() {
+		$(this).children('a').css({
+			color: 'darkred'
+		})
+	})
+	$('.b1>div>p').mouseout(function() {
+		$(this).children('a').css({
+			color: ''
+		})
+	})
+})
+$(function() {
+	$('.b1>p').mouseover(function() {
+		$(this).children('a').css({
+			color: 'darkred'
+		})
+	})
+	$('.b1>p').mouseout(function() {
+		$(this).children('a').css({
+			color: ''
+		})
+	})
+})
+
+$(function() {
+	$('.list>li').mouseover(function() {
+		$(this).children('a').css({
+			color: 'darkred'
+		})
+	})
+	$('.list>li').mouseout(function() {
+		$(this).children('a').css({
+			color: ''
+		})
+	})
+})
+
+$(function() {
+	$('.dw_a').mouseover(function() {
+		$(this).children().eq(1).css({
+			display: 'block'
+		})
+		$(this).children().eq(2).css({
+			display: 'block'
+		})
+	})
+	$('.dw_a').mouseout(function() {
+		$(this).children().eq(1).css({
+			display: ''
+		})
+		$(this).children().eq(2).css({
+			display: ''
+		})
+	})
+})
+
+
+
+
+//首页和详情页的交互
+
+// var oB = document.getElementsByClassName("A");
+// for (let i = 0; i < oB.length; i++) {
+// 	oB[i].onclick = function() {
+// 		// this.index=i;
+// 		let xhr = new XMLHttpRequest();
+// 		xhr.open("get", "./php/index.php?id="+Number(i+1), true);
+// 			xhr.onreadystatechange = function() {
+// 				if (xhr.status == 200 && xhr.readyState == 4) {
+// 					fun(xhr.responseText);
+// 				}
+// 			}
+// 			xhr.send();
+// 			function fun(str) {
+// 				// window.location.href='yqy.html';
+//				 console.log(str);//这一块应该将返回的字符串截取
+// 				}
+// 					document.cookie="id="+Number(i+1);
+// 			}
+// 
+//			 }
