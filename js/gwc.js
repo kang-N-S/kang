@@ -2,11 +2,11 @@
 	let right1 = document.getElementById('right_a1'); //登录
 	let right2 = document.getElementById('right_a2'); //注册
 	let dl = document.getElementsByClassName('dl')[0];
-	if (document.cookie.indexOf('username') >= 0) { //indexOf()通过内容来判断是否存在（存在则返回下标，不存在返回-1）
+	if (document.cookie.indexOf('user') >= 0) { //indexOf()通过内容来判断是否存在（存在则返回下标，不存在返回-1）
 		dl.remove();
 		let str = document.cookie.split("; ");
 		for (let i = 0; i < str.length - 1; i++) {
-			let str1 = str[i].split("=");
+			var str1 = str[i].split("=");
 			right1.innerHTML = str1[1];
 			right1.style.lineHeight = '36px'
 		}
@@ -26,9 +26,11 @@
 			fun(xhr.responseText);
 		}
 	}
-	xhr.send();
-
+	
+	xhr.send('userid=' + str1[1]);
+	
 	function fun(str) {
+		console.log(str);
 		let b = JSON.parse(str); //将后面返回的数组转化成字符串
 		let zz = document.getElementById('zz'); //获取父元素
 		let a = ''; //设置里面的子元素
@@ -50,27 +52,19 @@
 						<button type="button" class="num2">+</button>
 						<span class="sp_a">¥${b[i].price*b[i].num}</span>
 						<button type="button" class="btn_dele">删除</button>
-						<input type="text" name="" class="hi" value="${b[i].goods_id}" />
+						<input type="hidden" name="" class="hi" value="${b[i].goods_id}" />
 					</div>
 				</div>
 				`;
 		}
 		zz.innerHTML = a;
 		
-		
-		
-		 
-		 
-		
 		fun1();//input的操作
 		sun3();//删除按钮的ajax
 		reduce();//减号按钮
 		add();//加号按钮
 		zj();//总计(包括总价格总数量)
-		
 	}
-// }
-
 
 
 
@@ -213,7 +207,7 @@ $(function() {
 					$(this).next().next().next().html('¥' + $(this).prev().html());
 				}
 				$(this).next().next().next().html('¥' + parseInt($(this).prev().html()) * parseInt($(this).next().val()))
-				let fxk=document.getElementById('fxk');
+				let fxk=document.getElementsByClassName('fxk')[0];
 				if(fxk.checked){
 					zj();
 				}
@@ -230,7 +224,7 @@ $(function() {
 					$(this).prev().val(parseInt(($(this).prev().val()) - (-1)));
 					//判断小计
 					$(this).next().html('¥' + parseInt($(this).prev().prev().prev().html()) * parseInt($(this).prev().val()))
-					let fxk=document.getElementById('fxk');
+					let fxk=document.getElementsByClassName('fxk')[0];
 					if(fxk.checked){
 						zj();
 					}
@@ -273,6 +267,7 @@ $(function() {
 					cc += dd;
 				})
 				sp2.value = cc;
+				$('#gwc_num').html(sp2.value);
 			}
 			
 			
@@ -377,6 +372,7 @@ function sun3(){
 					xhr.send();
 						
 					function fun(str1) {
+						
 					}
 	
 		}

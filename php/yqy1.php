@@ -1,4 +1,4 @@
-<?php 
+ <?php 
 	header("Content-type:text/html;charset=utf-8");
 
 	
@@ -8,6 +8,7 @@
 	$price=$_POST['price'];
 	$bx_pic=$_POST['bx_pic'];
 	$h1=$_POST['h1'];
+	$str=$_POST['userid'];
 	
 	// echo $id,$num,$price,$bx_pic,$h1;
 	
@@ -23,7 +24,7 @@
 	$rows=mysql_num_rows($result);
 	// var_dump($rows);die;
 	if($rows==0){
-		$result=mysql_query("insert into goods (goods_id,num,price,img,name) values ('$id','$num','$price','$bx_pic','$h1')",$conn);
+		$result=mysql_query("insert into goods (goods_id,num,price,img,name,userid) values ('$id','$num','$price','$bx_pic','$h1','$str')",$conn);
 		// if($result){
 		// 	echo  1;
 		// }

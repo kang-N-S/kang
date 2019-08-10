@@ -6,14 +6,15 @@
 	// $price=$_POST["price"];
 	// $img=$_POST['img'];
 	// $title=$_POST['title'];
-	$userid=$_POST['userid'];
+	$styleid=$_POST['styleid'];
 	
 	$conn=mysql_connect("localhost","root","root");
 	
 	if($conn){
 		mysql_select_db("user");
 	}
-	$result=mysql_query("select * from goods where userid='$userid'",$conn);
+	
+	$result=mysql_query("select * from syb where styleid='$styleid'",$conn);
 	// var_dump($result);die;
 	$rows=mysql_num_rows($result);
 	$show=array();

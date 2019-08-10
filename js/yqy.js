@@ -1,17 +1,15 @@
-window.onload = function() {
-	let right1 = document.getElementById('right_a1'); //登录
-	let right2 = document.getElementById('right_a2'); //注册
 
-	if (document.cookie.indexOf('username') >= 0) { //根据内容查询下标
-		let str = document.cookie.split("; ");
-		for (let i = 0; i < str.length - 1; i++) {
-			let str1 = str[i].split("=");
+	var right1 = document.getElementById('right_a1'); //登录
+	let right2 = document.getElementById('right_a2'); //注册
+	if (document.cookie.indexOf('user') >= 0) { //根据内容查询下标
+		var str = document.cookie.split("; ");
+		for (let i = 0; i < str.length-1; i++) {
+			var str1 = str[i].split("=");
 			right1.innerHTML = str1[1];
-			right1.style.lineHeight = '36px'
+			right1.style.lineHeight = '36px';
 		}
-		right2.remove();
+		right2.remove();	
 	}
-}
 
 
 
@@ -203,13 +201,46 @@ $(function() {
 	})
 })
 
+$(function(){
+	$('#xq_list li').mouseenter(function(e){
+		$(this).css({border:'1px solid red'})
+		$(this).siblings().css({border:''})
+		let img=$(this).children().attr('src');
+		$('#bx1 img').attr({src:img});
+		$('#bx3').css({
+			'background-image': 'url(' + img + ')',
+			'background-size' : '800px 800px'
+		});
+	})
+	
+	$('#xq_list li').mouseleave(function(e){
+		$(this).css({border:''})
+		let img=$('#bx1 img').attr('src');
+		console.log(img);
+		$('#bx1 img').attr({src:img});
+		$('#bx3').css({
+			'background-image': 'url('+ img +')'
+		});
+	})
+})
+
+
 
 $(document).ready(function() {
 	let img = $('#bx1 img').attr('src');
 	$('#bx3').css({
-		'background-image': 'url(' + img + ')'
+		'background-image': 'url(' + img + ')',
+		'background-size':'800px 800px'
 	});
 })
+
+
+
+
+
+
+
+
 
 
 
@@ -223,7 +254,7 @@ let btn01 = document.getElementsByClassName("product-button01")[0]; //加入购�
 let id = document.getElementById('hidd');
 let qd1 = document.getElementById('qd1');
 let box1 = document.getElementsByClassName('box1')[0];
-let qx1 = document.getElementById('qx1');
+let qx1 = document.getElementById('qx1'); 
 
 qx1.onclick = function() {
 	box1.style.display = 'none';
@@ -245,13 +276,13 @@ btn01.onclick = function() {
 	}
 	
 	xhr.send('num=' + num.value + '&price=' + price.innerHTML.substring(1) + '&bx_pic=' + bx_pic.src + '&h1=' + h1.innerHTML +
-		'&id=' + id.value);
+		'&id=' + id.value+'&userid='+str1[1]);
 
 	function fun(str) {
 		if (str == 1) {
-			// alert('成功');
+			console.log('添加成功');
 		} else {
-			// alert('失败');
+			console.log('添加失败');
 		}
 	}
 }

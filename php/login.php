@@ -9,7 +9,7 @@
 		mysql_select_db("user");
 	}
 	
-	$result=mysql_query("select * from suer_info where num='$id' and pwd='$pwd'",$conn);
+	$result=mysql_query("select * from suer_info where user='$id' and pwd='$pwd'",$conn);
 	// var_dump($result);die;
 	
 	$row=mysql_num_rows($result);

@@ -85,8 +85,8 @@ $(function() {
 			if (str == 0) {
 				let date=new Date();
 				date.setDate(date.getDate() + 7);
-				document.cookie = `username=${text3.value};expires=${date.toGMTString()}`;
-				document.cookie = `userpass=${text4.value};expires=${date.toGMTString()}`;
+				document.cookie = `user=${text3.value};expires=${date.toGMTString()}`;
+				document.cookie = `pwd=${text4.value};expires=${date.toGMTString()}`;
 				location.href = "index.html";
 			} else {
 				if (text3.value || text4.value == '') {

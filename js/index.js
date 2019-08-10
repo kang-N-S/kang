@@ -1,8 +1,8 @@
-window.onload = function() {
+
 	let right1 = document.getElementById('right_a1');//登录
 	let right2 = document.getElementById('login_a');//注册
 	
-	if (document.cookie.indexOf('username')>=0) {//indexOf()通过内容来判断是否存在（存在则返回下标，不存在返回-1）
+	if (document.cookie.indexOf('user')>=0) {//indexOf()通过内容来判断是否存在（存在则返回下标，不存在返回-1）
 		let str = document.cookie.split("; ");
 		for (let i = 0; i < str.length-1; i++) {
 			let str1 = str[i].split("=");
@@ -12,7 +12,6 @@ window.onload = function() {
 		}
 		right2.remove();
 	}
-}
 
 
 let t = document.getElementsByClassName("top_p")[0];
@@ -377,4 +376,4 @@ $(function() {
 // 					document.cookie="id="+Number(i+1);
 // 			}
 // 
-//			 }
+//		}

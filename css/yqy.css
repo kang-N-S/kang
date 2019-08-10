@@ -1029,7 +1029,6 @@ td {
 				width: 400px;
 				height: 400px;
 				/* background: url(../img/13.png) no-repeat; */
-				/* background-size:400px 400px; */
 				float: left;
 				position: absolute;  
 				margin: 100px 100px;
@@ -1046,7 +1045,7 @@ td {
 				width: 400px;
 				height: 400px;
 				/* background: url(../img/13.png) no-repeat; */
-				/* background-size:800px 800px; */
+				/* background-size: 800px 800px ; */
 				margin-left: 564px;
 				margin-top: 100px;
 				display: none;
@@ -1064,23 +1063,23 @@ td {
 	}
 	.xq_lb_2{
 		width: 390px;
-		height: 60px;
+		height: 64Spx;
 		margin: 0 auto;
-		/* background: beige; */
-		padding-top: 8px;
 		overflow: hidden;
 	}
 	#xq_list{
 		width: 460px;
-		height: 60px;
+		height: 62px;
 		display: flex;
-		justify-content: space-around;
+		justify-content: space-between;
 		position: relative;
 	}
-	
+	.xq_lb li{
+		height: 56px;
+	}
 	.xq_lb li img{
 		width: 60px;
-		height: 60px;  
+		height: 56px;  
 	} 
 	.xq_lb span{
 		display: block;
@@ -1090,7 +1089,7 @@ td {
 		float: left;
 		border: 1px solid darkgray;
 		background: transparent;
-		line-height: 26px;
+		line-height: 24px;
 		text-align: center;
 		font-size: 24px;
 		font-weight: 400;
@@ -1171,3 +1170,4 @@ td {
 				color: white;
 				background: darkred;
 			}
+			
